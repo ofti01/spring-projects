@@ -1,0 +1,1 @@
+rest project that uses dtos entity and exception and modelwrapper 
