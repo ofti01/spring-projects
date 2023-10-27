@@ -1,0 +1,11 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://mysqldb:3306/E-BANK
+    username: root
+    password: root
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8085
+

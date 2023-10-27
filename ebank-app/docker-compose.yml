@@ -3,22 +3,18 @@ services:
   ebank-app:
     build: .
     restart: on-failure
-    container_name: ebank-app
     image: ebank-app:latest
+    container_name: ebank-app
     ports:
       - "8085:8085"
-    networks:
-      - mino
+    depends_on:
+      - mysqldb
   mysqldb:
     restart: unless-stopped
-    image: mysql:latest
+    image: mysql
     ports:
       - "3306:3306"
     container_name: "mysqldb"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=E-BANK
-    volumes:
-      - ./mysql-ebank:/data/mysql
-networks:
-  mino:

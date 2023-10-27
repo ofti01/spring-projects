@@ -31,7 +31,7 @@ public class EbankAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(EbankAppApplication.class, args);
     }
-
+/*
     @Bean
     CommandLineRunner commandLineRunner(BankAccountService bankAccountService){
         return args -> {
@@ -110,4 +110,6 @@ public class EbankAppApplication {
         };
 
     }
+
+ */
 }

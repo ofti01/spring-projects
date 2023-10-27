@@ -1,15 +1,36 @@
-#use an official java image
-FROM openjdk:17-alpine
+# Stage 1: Build stage
 
-#Set working directory in the container
-WORKDIR /app
+FROM maven:3.8.4-openjdk-17-slim AS build
 
-#copy the jar file to the container
-COPY target/*.jar app.jar
+# Copy Maven files for dependency resolution
 
-#expose port for the application
+COPY pom.xml ./
+COPY .mvn .mvn
+
+# Copy application source code
+
+COPY src src
+
+# Build the project and create the executable JAR
+
+RUN mvn clean install -DskipTests
+
+# Stage 2: Run stage
+
+FROM openjdk:17-jdk-slim
+
+# Set working directory
+
+WORKDIR ebank
+
+# Copy the JAR file from the build stage
+
+COPY --from=build target/*.jar ebank.jar
+
+# Expose port 1221
+
 EXPOSE 8085
 
-#Set the command to run the JAR file
+# Set the entrypoint command for running the application
 
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "ebank.jar"]
