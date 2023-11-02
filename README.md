@@ -6,4 +6,4 @@ Spring boot microservices developed with spring boot 3 and dockerized with docke
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone git@github.com:ofti01/spring-projects.git
