@@ -20,3 +20,8 @@ Spring boot microservices developed with spring boot 3 and dockerized with docke
     ```sh
    cd ebank-app
    docker-compose up -d
+
+2. run product-service docker containers
+    ```sh
+   cd product-service
+   docker-compose up -d
