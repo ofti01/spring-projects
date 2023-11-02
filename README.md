@@ -19,6 +19,6 @@ Spring boot microservices developed with spring boot 3 and dockerized with docke
 1. run ebank docker containers
     ```sh
    cd ebank-app
- then
+then
     ```sh
    docker-compose up -d
